@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@custom-variant dark (&:where(.dark, .dark [data-theme=dark], [data-theme=dark] *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(
+    --font-geist-sans,
+    "Nunito Sans",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial
+  );
+  --font-mono: var(
+    --font-geist-mono,
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    "Roboto Mono",
+    "Courier New",
+    monospace
+  );
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Clamp utility: multi-line ellipsis using -webkit-line-clamp with a CSS variable fallback.
+   Usage:
+     - Add the class `clamp` and optionally set `--lines` inline or via a preset class.
+     - There are preset classes: `.clamp-3`, `.clamp-6` for convenience.
+   This works in WebKit-based browsers and most modern browsers that support -webkit-line-clamp.
+   We also provide a max-height fallback (based on a default line-height) to constrain height.
+*/
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: var(--lines, 3);
+  line-height: 1.25rem;
+  max-height: calc(var(--lines, 3) * 1.25rem);
+}
+
+/* Convenience presets */
+.clamp-1 {
+  --lines: 1;
+}
+.clamp-2 {
+  --lines: 2;
+}
+.clamp-3 {
+  --lines: 3;
+}
+.clamp-4 {
+  --lines: 4;
+}
+.clamp-6 {
+  --lines: 6;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
