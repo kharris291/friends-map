@@ -1,6 +1,6 @@
 import "./button.css";
 
-import cx from "classnames";
+import cx from "clsx";
 export interface ButtonProps {
   /** Is this the principal call to action on the page? */
   primary?: boolean;

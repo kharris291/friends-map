@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Fragment, useEffect, useState } from "react";
-import clsx from "classnames";
+import clsx from "clsx";
 import { CardItem } from "@/components/ZoomCard/CardItem";
 import { CreateConnection } from "@/components/modals/create-connection";
 import { UserItem } from "@/types/app/userItem";

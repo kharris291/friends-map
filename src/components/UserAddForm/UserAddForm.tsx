@@ -24,6 +24,11 @@ export default function UserAddForm({ initialName, initialEmail }: Props) {
         body: JSON.stringify({ name, email }),
       });
       if (!res.ok) throw new Error("failed");
+      if (res.status < 300) {
+        setStatus("success");
+        setName("");
+        setEmail("");
+      }
     } catch (err) {
       console.error(err);
       setStatus("error");
@@ -47,10 +52,11 @@ export default function UserAddForm({ initialName, initialEmail }: Props) {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="p-4 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
         </div>
-        <div>
+        <div className="flex flex-col gap-4">
+          <div className="relative w-0 h-0 border-l-[15px] border-r-[15px] border-b-[26px] border-l-transparent border-r-transparent border-b-black"></div>
           <label
             htmlFor="email"
             className="block text-sm font-medium text-gray-700"
@@ -63,7 +69,7 @@ export default function UserAddForm({ initialName, initialEmail }: Props) {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="p-4 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
         </div>
         <button

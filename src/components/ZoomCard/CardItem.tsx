@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import clsx from "classnames";
+import clsx from "clsx";
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import { UserItem } from "@/types/app/userItem";
 
