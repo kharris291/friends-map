@@ -39,10 +39,10 @@ export default function UserAddForm({ initialName, initialEmail }: Props) {
     <div className="flex flex-col place-self-center-safe w-md">
       <h1 className="text-2xl font-bold mb-4">Add User</h1>
       <form className="space-y-4" onSubmit={handleSubmit}>
-        <div>
+        <div className="flex flex-col gap-2">
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-lg font-medium text-gray-700"
           >
             Name
           </label>
@@ -52,14 +52,13 @@ export default function UserAddForm({ initialName, initialEmail }: Props) {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="p-4 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="p-4 block w-full rounded-md border-gray-300 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
         </div>
-        <div className="flex flex-col gap-4">
-          <div className="relative w-0 h-0 border-l-[15px] border-r-[15px] border-b-[26px] border-l-transparent border-r-transparent border-b-black"></div>
+        <div className="flex flex-col gap-2">
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-lg font-medium text-gray-700"
           >
             Email
           </label>
@@ -69,7 +68,7 @@ export default function UserAddForm({ initialName, initialEmail }: Props) {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="p-4 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="p-4 block w-full rounded-md border-gray-300 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
         </div>
         <button

@@ -1,4 +1,4 @@
-export const retrieveUserConnections = async (userId: string) => {
+export const retrieveUserConnections = async (userId: string | undefined) => {
   const response = await fetch(`/api/connection/${userId}/retrieve`, {
     method: "GET",
     headers: {

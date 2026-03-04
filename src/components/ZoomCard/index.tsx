@@ -9,15 +9,15 @@ import { retrieveUserConnections } from "@/lib/retrieveUserConnections";
 import { ConnectionItem } from "@/components/ZoomCard/ConnectionItem";
 
 export default function ZoomCard({
-  selected,
-  setSelectedAction,
-  user,
-  usersList,
-}: {
-  selected?: UserItem;
-  setSelectedAction: (value?: UserItem) => void;
-  user: UserItem;
-  usersList: UserItem[];
+                                   selected,
+                                   setSelectedAction,
+                                   user,
+                                   usersList
+                                 }: {
+  selected?: UserItem,
+  setSelectedAction: (value?: UserItem) => void,
+  user: UserItem,
+  usersList: UserItem[],
 }) {
   const [expandedState, setExpandedState] = useState(false);
   const [connections, setConnections] = useState<Array<UserItem> | undefined>(
